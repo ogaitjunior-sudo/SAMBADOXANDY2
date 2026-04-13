@@ -8,22 +8,22 @@ describe("Index page", () => {
     const heroVideo = container.querySelector("video");
     const featuredVideo = screen.getByTitle(/samba do xandy ao vivo no youtube/i);
 
-    expect(screen.getAllByRole("button", { name: /inicio/i }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("button", { name: /in[ií]cio/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("button", { name: /integrantes/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("button", { name: /discografia/i }).length).toBeGreaterThan(0);
-    expect(screen.getByRole("button", { name: /videos/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /v[ií]deos/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /agenda/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /galeria/i })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /contato/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("heading", { name: /samba do xandy/i }).length).toBeGreaterThan(0);
-    expect(screen.getAllByRole("button", { name: /solicitar orcamento/i }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("button", { name: /solicitar or[cç]amento/i }).length).toBeGreaterThan(0);
     expect(screen.getByText(/show ao vivo em destaque/i)).toBeInTheDocument();
-    expect(screen.getByText(/identidade artistica/i)).toBeInTheDocument();
+    expect(screen.getByText(/identidade art[ií]stica/i)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^xandy godoy$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^marcus felipe$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^jhon batera$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^paulo santana$/i })).toBeInTheDocument();
-    expect(screen.getAllByAltText(/a raiz ta no sertao/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByAltText(/a raiz t[aá] no sert[aã]o/i).length).toBeGreaterThan(0);
     expect(heroVideo).toBeInTheDocument();
     expect(featuredVideo).toBeInTheDocument();
     expect(featuredVideo).toHaveAttribute("src", expect.stringContaining("youtube.com/embed/Cn9HBWaZMAU?start=135"));
@@ -39,7 +39,7 @@ describe("Index page", () => {
     fireEvent.click(screen.getByRole("tab", { name: /discografia/i }));
 
     await waitFor(() => {
-      expect(screen.getByText(/a raiz ta no sertao \(ao vivo\)/i)).toBeInTheDocument();
+      expect(screen.getByText(/a raiz t[aá] no sert[aã]o \(ao vivo\)/i)).toBeInTheDocument();
     });
     expect(screen.getByText(/festa de outubro 2023/i)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /show \| euclides da cunha/i })).toBeInTheDocument();
@@ -111,11 +111,11 @@ describe("Index page", () => {
     fireEvent.change(screen.getByPlaceholderText(/telefone/i), {
       target: { value: "(71) 99999-9999" },
     });
-    fireEvent.change(screen.getByPlaceholderText(/^email$/i), {
+    fireEvent.change(screen.getByPlaceholderText(/e-mail/i), {
       target: { value: "maria@example.com" },
     });
     fireEvent.change(screen.getByPlaceholderText(/conte sobre seu evento/i), {
-      target: { value: "Quero mais informacoes sobre as proximas datas." },
+      target: { value: "Quero mais informações sobre as próximas datas." },
     });
 
     fireEvent.submit(screen.getByRole("button", { name: /enviar proposta por e-mail/i }).closest("form")!);

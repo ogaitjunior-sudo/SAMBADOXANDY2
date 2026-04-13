@@ -22,7 +22,7 @@ const SocialProofSection = () => {
           })}
         </div>
         <p className="mt-4 text-center text-sm italic text-muted-foreground">
-          "Um show que entra no evento para somar, criar conexao e fazer a pista responder."
+          "Um show que entra no evento para somar, criar conexão e fazer a pista responder."
         </p>
       </div>
     </section>

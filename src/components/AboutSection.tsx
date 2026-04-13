@@ -17,7 +17,9 @@ const AboutSection = () => {
       >
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">{siteContent.about.eyebrow}</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">
+              {siteContent.about.eyebrow}
+            </p>
             <h2 className="max-w-2xl text-4xl leading-none text-foreground md:text-6xl">
               {siteContent.about.title}
             </h2>
@@ -57,13 +59,13 @@ const AboutSection = () => {
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-primary">Direção visual</p>
                   <p className="mt-2 text-sm leading-6 text-foreground/72">
-                    Escuro elegante, luz quente e composições pensadas para reforcar exclusividade.
+                    Escuro elegante, luz quente e composições pensadas para reforçar exclusividade.
                   </p>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-primary">Experiência</p>
                   <p className="mt-2 text-sm leading-6 text-foreground/72">
-                    Estrutura que conduz o usuario do impacto inicial ate a decisão de contato.
+                    Estrutura que conduz o usuário do impacto inicial até a decisão de contato.
                   </p>
                 </div>
               </div>

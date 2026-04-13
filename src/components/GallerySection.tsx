@@ -8,7 +8,7 @@ import { siteContent } from "@/content/siteContent";
 const galleryItems = [
   {
     src: programaBalancoGeral,
-    alt: "Participacao do Samba do Xandy no programa Balanco Geral",
+    alt: "Participação do Samba do Xandy no programa Balanço Geral",
     span: "sm:col-span-2",
     aspectClass: "aspect-[4/3] lg:aspect-[16/10]",
     frameClass: "bg-[#06070d] p-3",
@@ -16,7 +16,7 @@ const galleryItems = [
   },
   {
     src: projetoARaizTaNoSertao,
-    alt: "Projeto A Raiz Ta no Sertao",
+    alt: "Projeto A Raiz Tá no Sertão",
     span: "",
     aspectClass: "aspect-[4/5]",
     frameClass: "",
@@ -32,7 +32,7 @@ const galleryItems = [
   },
   {
     src: showTiraFinoCiceroDantas,
-    alt: "Show Tira Fino em Cicero Dantas",
+    alt: "Show Tira Fino em Cícero Dantas",
     span: "sm:col-span-2",
     aspectClass: "aspect-[4/3] lg:aspect-[16/10]",
     frameClass: "bg-[#06070d] p-3",

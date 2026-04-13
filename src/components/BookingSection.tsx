@@ -8,9 +8,9 @@ const BookingSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const subject = encodeURIComponent(`Solicitacao de show - ${siteContent.brand.name}`);
+    const subject = encodeURIComponent(`Solicitação de show - ${siteContent.brand.name}`);
     const body = encodeURIComponent(
-      `Ola! Meu nome e ${form.nome}.\nGostaria de contratar o ${siteContent.brand.name}.\n\nTelefone: ${form.telefone}\nEmail: ${form.email}\n\nDetalhes do evento:\n${form.mensagem || "Ainda estou organizando as informacoes."}`,
+      `Olá! Meu nome é ${form.nome}.\nGostaria de contratar o ${siteContent.brand.name}.\n\nTelefone: ${form.telefone}\nE-mail: ${form.email}\n\nDetalhes do evento:\n${form.mensagem || "Ainda estou organizando as informações."}`,
     );
 
     window.open(`${siteContent.links.email}?subject=${subject}&body=${body}`, "_self");
@@ -31,7 +31,7 @@ const BookingSection = () => {
             PARA SEU EVENTO
           </h2>
           <p className="mb-12 text-lg text-foreground/60">
-            Preencha os dados principais e abriremos um rascunho de e-mail com a solicitacao pronta para envio.
+            Preencha os dados principais e abriremos um rascunho de e-mail com a solicitação pronta para envio.
           </p>
 
           <form onSubmit={handleSubmit} className="mx-auto mb-8 max-w-md space-y-4">
@@ -54,7 +54,7 @@ const BookingSection = () => {
               />
               <input
                 type="email"
-                placeholder="Email"
+                placeholder="E-mail"
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}

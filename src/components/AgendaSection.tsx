@@ -8,7 +8,7 @@ const AgendaSection = () => {
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">Agenda</p>
           <h2 className="text-4xl leading-none text-foreground md:text-6xl">
-            Proximas datas para quem quer levar a energia do palco para uma noite memoravel.
+            Próximas datas para quem quer levar a energia do palco para uma noite memorável.
           </h2>
         </div>
 

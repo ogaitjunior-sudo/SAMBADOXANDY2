@@ -32,8 +32,8 @@ type SocialLink = {
 const memberCards = [
   {
     name: "Xandy Godoy",
-    role: "Voz principal e viol\u00E3o",
-    bio: "Conduz a identidade do projeto com repertorio forte, presenca de palco e uma leitura popular que aproxima o publico desde a primeira musica.",
+    role: "Voz principal e violão",
+    bio: "Conduz a identidade do projeto com repertório forte, presença de palco e uma leitura popular que aproxima o público desde a primeira música.",
     photo: xandyGodoy,
     frameClass: "",
     imageClass: "object-cover object-top",
@@ -42,7 +42,7 @@ const memberCards = [
   {
     name: "Marcus Felipe",
     role: "Tecladista e diretor musical",
-    bio: "M\u00FAsico com 18 anos de experi\u00EAncia, professor de m\u00FAsica e multi-instrumentista (teclado, piano, viol\u00E3o e baixo), transformando paix\u00E3o em som.",
+    bio: "Músico com 18 anos de experiência, professor de música e multi-instrumentista (teclado, piano, violão e baixo), transformando paixão em som.",
     photo: marcusFelipe,
     frameClass: "bg-[linear-gradient(180deg,#eef2f7,#dfe7f0)]",
     imageClass: "object-cover object-top scale-[1.06]",
@@ -51,9 +51,9 @@ const memberCards = [
     ] as SocialLink[],
   },
   {
-    name: "Jhon batera",
+    name: "Jhon Batera",
     role: "Baterista",
-    bio: "Um cara humilde que vive a musica com o coracao e transforma cada batida em paixao na bateria.",
+    bio: "Um cara humilde que vive a música com o coração e transforma cada batida em paixão na bateria.",
     photo: jhonBatera,
     frameClass: "",
     imageClass: "object-cover object-[center_22%]",
@@ -63,8 +63,8 @@ const memberCards = [
   },
   {
     name: "Paulo Santana",
-    role: "Voz e Percus\u00E3o",
-    bio: "Musicista, pai do Th\u00E9o e movido pela m\u00FAsica e pela vida. No pagode, levo hist\u00F3rias de amor, supera\u00E7\u00E3o e alegria \u2014 sempre guiado por Deus.",
+    role: "Voz e Percussão",
+    bio: "Musicista, pai do Théo e movido pela música e pela vida. No pagode, levo histórias de amor, superação e alegria — sempre guiado por Deus.",
     photo: pauloSantana,
     frameClass: "bg-[#090b12] p-2",
     imageClass: "object-contain object-center",
@@ -76,7 +76,7 @@ const memberCards = [
 
 const releases = [
   {
-    title: "CD | A Raiz Ta no Sertao (Ao Vivo)",
+    title: "CD | A Raiz Tá no Sertão (Ao Vivo)",
     artist: siteContent.brand.name,
     format: "Download em ZIP",
     cover: capaRaizTaNoSertao,

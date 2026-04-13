@@ -11,7 +11,7 @@ const FeaturedVideoSection = () => {
             <span className="text-gradient-gold">{siteContent.brand.name.toUpperCase()}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Assista ao video em destaque, cortes de show e bastidores no canal oficial.
+            Assista ao vídeo em destaque, cortes de show e bastidores no canal oficial.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ const FeaturedVideoSection = () => {
 
           <div className="flex flex-col gap-3 border-t border-border bg-card/80 px-6 py-5 text-left md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-primary">Video em destaque</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-primary">Vídeo em destaque</p>
               <h3 className="text-xl font-semibold text-foreground">{siteContent.featuredVideo.description}</h3>
             </div>
 

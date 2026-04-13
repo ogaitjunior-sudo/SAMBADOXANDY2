@@ -10,7 +10,7 @@ const ContactSection = () => {
 
     const subject = encodeURIComponent(`Contato premium - ${siteContent.brand.name}`);
     const body = encodeURIComponent(
-      `Olá! Meu nome é ${form.nome}.\n\nEmail: ${form.email}\n\nMensagem:\n${form.mensagem}`,
+      `Olá! Meu nome é ${form.nome}.\n\nE-mail: ${form.email}\n\nMensagem:\n${form.mensagem}`,
     );
 
     window.open(`${siteContent.links.email}?subject=${subject}&body=${body}`, "_self");
@@ -23,7 +23,9 @@ const ContactSection = () => {
         <div className="overflow-hidden rounded-[32px] border border-primary/20 bg-[linear-gradient(145deg,rgba(20,15,15,0.96),rgba(12,12,16,0.94))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.42)] md:p-10">
           <div className="grid gap-10 md:grid-cols-[1fr_0.92fr]">
             <div>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">{siteContent.finalCta.eyebrow}</p>
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary">
+                {siteContent.finalCta.eyebrow}
+              </p>
               <h2 className="max-w-2xl text-4xl leading-none text-foreground md:text-6xl">
                 {siteContent.finalCta.title}
               </h2>
@@ -88,7 +90,7 @@ const ContactSection = () => {
                   className="w-full rounded-2xl border border-border bg-background/80 px-4 py-4 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
                 />
                 <textarea
-                  placeholder="Conte o que voce deseja criar ou reservar..."
+                  placeholder="Conte o que você deseja criar ou reservar..."
                   rows={5}
                   required
                   value={form.mensagem}

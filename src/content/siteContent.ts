@@ -99,7 +99,7 @@ export const siteContent = {
   },
   featuredVideo: {
     title: "Samba do Xandy ao vivo no YouTube",
-    description: "Assista ao video em destaque do projeto diretamente aqui no site.",
+    description: "Assista ao vídeo em destaque do projeto diretamente aqui no site.",
     youtubeUrl: "https://www.youtube.com/watch?v=Cn9HBWaZMAU&list=RDCn9HBWaZMAU&start_radio=1&t=135s",
     embedUrl: "https://www.youtube.com/embed/Cn9HBWaZMAU?start=135&rel=0",
     ctaLabel: "Abrir no YouTube",
