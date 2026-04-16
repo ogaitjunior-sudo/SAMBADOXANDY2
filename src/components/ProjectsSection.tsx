@@ -1,4 +1,3 @@
-import projectBanner from "@/assets/raiz-ta-no-sertao-banner.svg";
 import { siteContent } from "@/content/siteContent";
 
 const ProjectsSection = () => {
@@ -14,10 +13,10 @@ const ProjectsSection = () => {
         <div className="mx-auto max-w-5xl">
           <div className="overflow-hidden rounded-[28px] border border-border bg-card/80 shadow-[0_20px_60px_rgba(0,0,0,0.22)]">
             <img
-              src={projectBanner}
+              src="/media/sambadoxandy.png"
               alt={siteContent.featuredProject.title}
               loading="lazy"
-              className="w-full border-b border-border object-cover"
+              className="w-full border-b border-border bg-[#1a140d] object-cover"
             />
             <div className="grid gap-6 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
               <div>

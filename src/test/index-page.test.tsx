@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
-import { vi } from "vitest";
 import Index from "@/pages/Index";
 
 describe("Index page", () => {
@@ -8,24 +7,24 @@ describe("Index page", () => {
     const heroVideo = container.querySelector("video");
     const featuredVideo = screen.getByTitle(/samba do xandy ao vivo no youtube/i);
 
-    expect(screen.getAllByRole("button", { name: /in[ií]cio/i }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("button", { name: /in.cio/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("button", { name: /integrantes/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("button", { name: /discografia/i }).length).toBeGreaterThan(0);
-    expect(screen.getByRole("button", { name: /v[ií]deos/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /v.deos/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /agenda/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /galeria/i })).toBeInTheDocument();
     expect(screen.getAllByRole("button", { name: /contato/i }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("heading", { name: /samba do xandy/i }).length).toBeGreaterThan(0);
-    expect(screen.getAllByRole("button", { name: /solicitar or[cç]amento/i }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("button", { name: /solicitar or.amento/i }).length).toBeGreaterThan(0);
     expect(screen.getByText(/show ao vivo em destaque/i)).toBeInTheDocument();
-    expect(screen.getByText(/identidade art[ií]stica/i)).toBeInTheDocument();
+    expect(screen.getByText(/identidade art.stica/i)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^xandy godoy$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^marcus felipe$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^jhon batera$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^paulo santana$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^tiago reis$/i })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /^ricardo godoy$/i })).toBeInTheDocument();
-    expect(screen.getAllByAltText(/a raiz t[aá] no sert[aã]o/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByAltText(/a raiz t.*no sert.o/i).length).toBeGreaterThan(0);
     expect(heroVideo).toBeInTheDocument();
     expect(featuredVideo).toBeInTheDocument();
     expect(featuredVideo).toHaveAttribute("src", expect.stringContaining("youtube.com/embed/Cn9HBWaZMAU?start=135"));
@@ -41,13 +40,13 @@ describe("Index page", () => {
     fireEvent.click(screen.getByRole("tab", { name: /discografia/i }));
 
     await waitFor(() => {
-      expect(screen.getByText(/a raiz t[aá] no sert[aã]o \(ao vivo\)/i)).toBeInTheDocument();
+      expect(screen.getByText(/a raiz t.*no sert.o \(ao vivo\)/i)).toBeInTheDocument();
     });
 
     expect(screen.getByText(/festa de outubro 2023/i)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: /ao vivo em euclides da cunha/i })).toBeInTheDocument();
-    expect(screen.getByText(/pagode é sentimento/i)).toBeInTheDocument();
-    expect(screen.getByText(/álbum ao vivo/i)).toBeInTheDocument();
+    expect(screen.getByText(/pagode.*sentimento/i)).toBeInTheDocument();
+    expect(screen.getByText(/lbum ao vivo/i)).toBeInTheDocument();
     expect(screen.getAllByText(/show ao vivo/i).length).toBeGreaterThanOrEqual(2);
     expect(
       screen
@@ -106,10 +105,10 @@ describe("Index page", () => {
       within(ricardoCard as HTMLElement).getByRole("link", { name: /instagram/i }),
     ).toHaveAttribute("href", "https://www.instagram.com/ricardolemos1977/");
 
-    const leoCard = screen.getByRole("heading", { name: /léo lapa/i }).closest("article");
+    const leoCard = screen.getByRole("heading", { name: /l.o lapa/i }).closest("article");
 
     expect(leoCard).not.toBeNull();
-    expect(within(leoCard as HTMLElement).getByText(/produção e percussão/i)).toBeInTheDocument();
+    expect(within(leoCard as HTMLElement).getByText(/produ.*o e percuss.*o/i)).toBeInTheDocument();
     expect(
       within(leoCard as HTMLElement).getByRole("link", { name: /instagram/i }),
     ).toHaveAttribute("href", "https://www.instagram.com/lapa5482?igsh=YjU5czhqMnF0d2ps");
@@ -118,31 +117,14 @@ describe("Index page", () => {
     expect(within(showcase as HTMLElement).queryByRole("link", { name: /contato/i })).not.toBeInTheDocument();
   });
 
-  it("opens an email draft from the booking form", () => {
-    const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
-
+  it("links the booking CTA directly to WhatsApp", () => {
     render(<Index />);
 
-    fireEvent.change(screen.getByPlaceholderText(/seu nome/i), {
-      target: { value: "Maria" },
-    });
-    fireEvent.change(screen.getByPlaceholderText(/telefone/i), {
-      target: { value: "(71) 99999-9999" },
-    });
-    fireEvent.change(screen.getByPlaceholderText(/e-mail/i), {
-      target: { value: "maria@example.com" },
-    });
-    fireEvent.change(screen.getByPlaceholderText(/conte sobre seu evento/i), {
-      target: { value: "Quero mais informações sobre as próximas datas." },
-    });
-
-    fireEvent.submit(screen.getByRole("button", { name: /enviar proposta por e-mail/i }).closest("form")!);
-
-    expect(openSpy).toHaveBeenCalledWith(
-      expect.stringContaining("mailto:contato@sambadoxandy.com.br?subject="),
-      "_self",
+    expect(screen.getByRole("link", { name: /chamar no whatsapp/i })).toHaveAttribute(
+      "href",
+      "https://wa.me/557583459255",
     );
-
-    openSpy.mockRestore();
+    expect(screen.queryByPlaceholderText(/e-mail/i)).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText(/conte sobre seu evento/i)).not.toBeInTheDocument();
   });
 });

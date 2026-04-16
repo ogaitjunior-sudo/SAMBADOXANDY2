@@ -5,12 +5,19 @@ import capaFestaDeOutubro from "@/assets/discography/capa-festa-de-outubro.jpg";
 import capaRaizTaNoSertao from "@/assets/discography/capa-raiz-ta-no-sertao.jpg";
 import jhonBatera from "@/assets/integrantes/jhon-batera.jpeg";
 import leoLapa from "@/assets/integrantes/leo-lapa.jpg";
-import marcusFelipe from "@/assets/integrantes/marcus-felipe.jpg";
 import pauloSantana from "@/assets/integrantes/paulo-santana.jpeg";
 import ricardoGodoy from "@/assets/integrantes/ricardo-godoy.jpg";
 import tiagoReis from "@/assets/integrantes/tiago-reis.jpg";
 import xandyGodoy from "@/assets/integrantes/xandy-godoy.jpg";
 import { siteContent } from "@/content/siteContent";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type ArtistTab = "integrantes" | "discografia";
@@ -43,12 +50,12 @@ const memberCards: MemberCard[] = [
     bio: "Conduz a identidade do projeto com repertório forte, presença de palco e uma leitura popular que aproxima o público desde a primeira música.",
     photo: xandyGodoy,
     mediaClass: "aspect-square",
-    frameClass: "bg-[radial-gradient(circle_at_top,rgba(255,190,92,0.16),#06070a_58%)]",
-    imageClass: "object-cover object-center scale-[1.04] md:scale-[1.06]",
+    frameClass: "bg-[radial-gradient(circle_at_top,rgba(255,190,92,0.2),#050608_62%)]",
+    imageClass: "object-cover object-center scale-[1.14] md:scale-[1.16]",
     cardClass:
-      "xl:border-primary/30 xl:bg-[linear-gradient(180deg,rgba(255,187,92,0.12),rgba(12,12,18,0.94))] xl:shadow-[0_24px_60px_rgba(255,177,61,0.14)]",
+      "xl:border-primary/38 xl:bg-[linear-gradient(180deg,rgba(255,187,92,0.14),rgba(12,12,18,0.96))] xl:shadow-[0_36px_90px_rgba(255,177,61,0.18)]",
     roleClass: "border-primary/32 bg-primary/12 text-primary",
-    titleClass: "xl:text-[2.15rem]",
+    titleClass: "xl:text-[2.35rem]",
     bioClass: "text-foreground/74",
     socials: [{ label: "Instagram", href: siteContent.links.instagram, icon: Instagram }] as SocialLink[],
   },
@@ -56,9 +63,10 @@ const memberCards: MemberCard[] = [
     name: "Marcus Felipe",
     role: "Tecladista e diretor musical",
     bio: "Músico com 18 anos de experiência, professor de música e multi-instrumentista (teclado, piano, violão e baixo), transformando paixão em som.",
-    photo: marcusFelipe,
+    photo: "/media/marcus.png",
+    mediaClass: "aspect-[4/5]",
     frameClass: "bg-[linear-gradient(180deg,#eef2f7,#dfe7f0)]",
-    imageClass: "object-cover object-top scale-[1.06]",
+    imageClass: "object-cover object-center",
     socials: [
       { label: "Instagram", href: "https://www.instagram.com/marcus_felipe_m", icon: Instagram },
     ] as SocialLink[],
@@ -68,6 +76,7 @@ const memberCards: MemberCard[] = [
     role: "Baterista",
     bio: "Um cara humilde que vive a música com o coração e transforma cada batida em paixão na bateria.",
     photo: jhonBatera,
+    mediaClass: "aspect-[4/5]",
     frameClass: "",
     imageClass: "object-cover object-[center_22%]",
     socials: [
@@ -91,6 +100,7 @@ const memberCards: MemberCard[] = [
     role: "Cavaquinho",
     bio: "Entre códigos, arte e acordes de cavaquinho, ele cria soluções, espalha criatividade e vive com paz na alma e samba no coração.",
     photo: tiagoReis,
+    mediaClass: "aspect-[4/5]",
     frameClass: "",
     imageClass: "object-cover object-[center_20%] scale-[1.16]",
     cardClass: "border-primary/35 shadow-[0_18px_44px_rgba(255,177,61,0.1)]",
@@ -103,7 +113,7 @@ const memberCards: MemberCard[] = [
     role: "Voz e Percussão",
     bio: "Amigo irmão de coração, sempre firme no projeto e no clima bom da equipe, ele vive o samba e o pagode com verdade, cantando, conectando e levando alegria por onde passa.",
     photo: ricardoGodoy,
-    mediaClass: "aspect-square",
+    mediaClass: "aspect-[4/5]",
     frameClass: "bg-[linear-gradient(180deg,#f1f1ef,#d9d9d3)]",
     imageClass: "object-cover object-[center_18%] scale-[1.08]",
     socials: [
@@ -115,9 +125,9 @@ const memberCards: MemberCard[] = [
     role: "Produção e Percussão",
     bio: "Essa pessoa é sinônimo de alegria, carinho e verdade.",
     photo: leoLapa,
-    mediaClass: "aspect-[3/4]",
-    frameClass: "bg-[linear-gradient(180deg,#e8ecef,#cfd5da)]",
-    imageClass: "object-contain object-top scale-[1.01]",
+    mediaClass: "aspect-[4/5]",
+    frameClass: "",
+    imageClass: "object-cover object-center scale-[1.02]",
     socials: [
       {
         label: "Instagram",
@@ -126,6 +136,16 @@ const memberCards: MemberCard[] = [
       },
     ] as SocialLink[],
   },
+];
+
+const xandyBioParagraphs = [
+  "O Samba do Xandy nasce da consolidação da trajetória musical de Xandy Godoy, artista com mais de 15 anos de experiência na música.",
+  "Sua história começa de forma simples e marcante, ainda como Xandy Godoy, quando encontrou um violão descartado, restaurou o instrumento e iniciou, de forma autodidata, seus primeiros passos na música. Com o tempo, aprendeu também a tocar cavaquinho e passou a se envolver com grupos de samba, dando início à sua vivência no gênero.",
+  "Em busca de evolução, teve uma passagem significativa pelo meio gospel, onde desenvolveu técnica vocal, disciplina e amadurecimento artístico, elementos que contribuíram diretamente para sua identidade musical.",
+  "Após esse período, retornou ao samba, onde se reconheceu artisticamente e deu origem ao projeto Samba do Xandy, consolidando sua proposta musical com ainda mais personalidade e presença.",
+  "Há mais de 10 anos radicado em Ribeira do Pombal, vem construindo e fortalecendo o movimento do samba na região, se tornando uma referência local e levando o gênero a diferentes públicos.",
+  "O nome Samba do Xandy ganhou maior visibilidade após uma polêmica envolvendo o uso do nome artístico, o que acabou ampliando o alcance do projeto e colocando seu trabalho em evidência.",
+  "Hoje, o Samba do Xandy representa autenticidade, perseverança e amor pelo samba, levando ao público não apenas música, mas uma história de superação e construção real dentro da cultura baiana.",
 ];
 
 const releases = [
@@ -220,15 +240,13 @@ const ArtistShowcaseSection = () => {
 
           <div className="mt-8 rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(16,17,24,0.92),rgba(10,11,16,0.98))] p-3 md:p-4">
             <TabsContent value="integrantes" className="fade-in mt-0">
-              <div className="grid gap-4 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)]">
+              <div className="grid gap-4 xl:grid-cols-[minmax(0,1.18fr)_minmax(0,1fr)]">
                 <article
-                  className={`group overflow-hidden rounded-[30px] border border-primary/25 bg-[linear-gradient(180deg,rgba(255,187,92,0.14),rgba(12,12,18,0.96))] shadow-[0_28px_70px_rgba(255,177,61,0.14)] transition-all duration-500 md:hover:-translate-y-1 md:hover:border-primary/40 ${featuredMember.cardClass ?? ""}`}
+                  className={`group flex h-full overflow-hidden rounded-[30px] border border-primary/25 bg-[linear-gradient(180deg,rgba(255,187,92,0.14),rgba(12,12,18,0.96))] shadow-[0_28px_70px_rgba(255,177,61,0.14)] transition-all duration-500 md:hover:-translate-y-1 md:hover:border-primary/40 ${featuredMember.cardClass ?? ""}`}
                 >
-                  <div className="p-4 md:p-5">
-                    <div className="relative overflow-hidden rounded-[28px] border border-primary/30 bg-[radial-gradient(circle_at_top,rgba(179,126,56,0.34),transparent_26%),linear-gradient(180deg,rgba(64,46,28,0.98),rgba(18,14,12,0.98))] px-4 py-5 shadow-[inset_0_0_0_1px_rgba(255,207,126,0.08)] md:px-5 md:py-6">
-                      <div className="pointer-events-none absolute inset-[10px] rounded-[22px] border border-primary/16" />
-
-                      <div className="relative z-10 flex flex-col gap-5">
+                  <div className="flex flex-1 p-4 md:p-5">
+                    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_top,rgba(179,126,56,0.34),transparent_26%),linear-gradient(180deg,rgba(64,46,28,0.98),rgba(18,14,12,0.98))] px-4 py-5 md:px-5 md:py-6">
+                      <div className="relative z-10 flex h-full flex-col gap-5">
                         <div className="text-center">
                           <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-black/18 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
                             <FeaturedRoleIcon className="h-3.5 w-3.5" />
@@ -250,17 +268,14 @@ const ArtistShowcaseSection = () => {
                           </p>
                         </div>
 
-                        <div className={`relative overflow-hidden rounded-[24px] border border-white/10 ${featuredMember.frameClass ?? ""}`}>
+                        <div className={`relative min-h-[420px] flex-1 overflow-hidden rounded-[24px] ${featuredMember.frameClass ?? ""}`}>
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,196,99,0.16),transparent_40%)]" />
-                          <div className="relative aspect-[11/12] overflow-hidden md:aspect-[10/11]">
-                            <img
-                              src={featuredMember.photo}
-                              alt={featuredMember.name}
-                              loading="lazy"
-                              className={`h-full w-full transform-gpu transition-transform duration-700 md:group-hover:scale-[1.03] ${featuredMember.imageClass ?? "object-cover object-center"}`}
-                            />
-                          </div>
-                          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0b0d12] via-[#0b0d12]/70 to-transparent" />
+                          <img
+                            src={featuredMember.photo}
+                            alt={featuredMember.name}
+                            loading="lazy"
+                            className={`absolute inset-0 h-full w-full transform-gpu transition-transform duration-700 md:group-hover:scale-[1.18] ${featuredMember.imageClass ?? "object-cover object-center"}`}
+                          />
                         </div>
 
                         <div className="flex justify-center">
@@ -282,7 +297,7 @@ const ArtistShowcaseSection = () => {
                           })}
                         </div>
 
-                        <div className="rounded-[22px] border border-primary/22 bg-black/14 p-5">
+                        <div className="rounded-[22px] bg-black/14 p-5">
                           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-primary">
                             Em resumo
                           </p>
@@ -292,12 +307,35 @@ const ArtistShowcaseSection = () => {
                         </div>
 
                         <div className="flex justify-center">
-                          <a
-                            href="#agenda"
-                            className="inline-flex items-center gap-2 rounded-full border border-primary/35 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
-                          >
-                            + Saiba mais
-                          </a>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <button
+                                type="button"
+                                className="inline-flex items-center gap-2 rounded-full border border-primary/35 px-6 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                              >
+                                + Saiba mais
+                              </button>
+                            </DialogTrigger>
+                            <DialogContent className="max-h-[86vh] max-w-3xl overflow-y-auto rounded-[28px] border-primary/25 bg-[linear-gradient(180deg,rgba(16,17,24,0.98),rgba(8,9,13,0.98))] p-6 text-foreground shadow-[0_28px_90px_rgba(0,0,0,0.55)] md:p-8">
+                              <DialogHeader>
+                                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+                                  História
+                                </p>
+                                <DialogTitle className="font-heading text-3xl leading-none text-foreground md:text-5xl">
+                                  Samba do Xandy
+                                </DialogTitle>
+                                <DialogDescription className="text-base leading-7 text-foreground/68">
+                                  Uma trajetória de perseverança, identidade e amor pelo samba.
+                                </DialogDescription>
+                              </DialogHeader>
+
+                              <div className="mt-2 space-y-4 text-left text-sm leading-7 text-foreground/76 md:text-base md:leading-8">
+                                {xandyBioParagraphs.map((paragraph) => (
+                                  <p key={paragraph}>{paragraph}</p>
+                                ))}
+                              </div>
+                            </DialogContent>
+                          </Dialog>
                         </div>
                       </div>
                     </div>
@@ -307,7 +345,7 @@ const ArtistShowcaseSection = () => {
                 <div className="grid gap-4 sm:grid-cols-2">
                   {supportingMembers.map((member, index) => {
                     const RoleIcon = roleIcons[index + 1];
-                    const mediaClass = member.mediaClass ?? "aspect-[4/3]";
+                    const mediaClass = member.mediaClass ?? "aspect-[4/5]";
 
                     return (
                       <article

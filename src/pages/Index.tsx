@@ -8,7 +8,6 @@ import GallerySection from "../components/GallerySection";
 import ProjectsSection from "../components/ProjectsSection";
 import SocialSection from "../components/SocialSection";
 import BookingSection from "../components/BookingSection";
-import FloatingContactButton from "../components/FloatingContactButton";
 import Footer from "../components/Footer";
 
 const Index = () => {
@@ -25,7 +24,6 @@ const Index = () => {
       <SocialSection />
       <BookingSection />
       <Footer />
-      <FloatingContactButton />
     </div>
   );
 };
